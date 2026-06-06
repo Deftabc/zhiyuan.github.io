@@ -350,11 +350,40 @@ section{position:relative;z-index:1}
 .tl-body .tl-sub{font-size:13px;color:rgba(255,255,255,0.4);margin-top:2px}
 .tl-body .tl-desc{font-size:13px;color:rgba(255,255,255,0.3);margin-top:6px;line-height:1.6}
 
-/* ===== TRIBUTE ===== */
-.tribute{padding:80px 24px;text-align:center}
-.tribute__inner{max-width:600px;margin:0 auto}
-.tribute p{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.9;margin-top:12px}
-.tribute .hl{color:#ff6b6b}
+/* ===== TRIBUTE / WORSHIP JOKELIN ===== */
+.tribute{padding:100px 24px;background:linear-gradient(180deg, transparent, rgba(255,107,107,0.03), rgba(108,92,231,0.03), transparent);text-align:center;position:relative}
+.tribute::before{content:'✨ 🙌 ✨ 🎉 ✨ 🌟 ✨ 🏆 ✨';position:absolute;top:20px;left:50%;transform:translateX(-50%);font-size:24px;letter-spacing:8px;opacity:0.2;pointer-events:none;white-space:nowrap}
+.tribute__inner{max-width:1000px;margin:0 auto}
+.tribute__hero{margin-bottom:32px}
+.tribute__avatar{
+  width:80px;height:80px;border-radius:24px;margin:0 auto 16px;
+  background:linear-gradient(135deg,#ff6b6b,#6c5ce7);
+  display:flex;align-items:center;justify-content:center;
+  font-size:36px;font-weight:900;color:#fff;
+  box-shadow:0 20px 60px rgba(108,92,231,0.3);
+  animation:tributePulse 3s ease-in-out infinite;
+}
+@keyframes tributePulse{0%,100%{box-shadow:0 20px 60px rgba(108,92,231,0.3)}50%{box-shadow:0 20px 80px rgba(108,92,231,0.5)}}
+.tribute__hero h2{font-size:32px;font-weight:900;background:linear-gradient(135deg,#ff6b6b,#feca57,#ff9ff3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.tribute__hero .tribute__tagline{font-size:14px;color:rgba(255,255,255,0.3);margin-top:4px;letter-spacing:2px;text-transform:uppercase}
+.tribute__quote{max-width:700px;margin:0 auto 40px;padding:28px 32px;border-radius:20px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);position:relative}
+.tribute__quote::before{content:'"';position:absolute;top:-10px;left:16px;font-size:60px;color:rgba(255,107,107,0.15);font-family:Georgia,serif}
+.tribute__quote p{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.9;font-style:italic}
+.tribute__quote strong{color:#ff6b6b;font-style:normal}
+.tribute__quote-author{margin-top:12px;font-size:13px;color:rgba(255,255,255,0.3);font-style:normal!important}
+.tribute__grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:40px}
+.tribute__card{padding:24px;border-radius:18px;text-align:left;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);transition:all 0.3s}
+.tribute__card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.04)}
+.tribute__card .tc-icon{font-size:32px;margin-bottom:12px;display:block}
+.tribute__card h4{font-size:15px;font-weight:700;margin-bottom:6px}
+.tribute__card p{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7}
+.tribute__shoutout{padding:20px;border-radius:14px;background:rgba(72,219,251,0.05);border:1px solid rgba(72,219,251,0.1);margin-bottom:32px}
+.tribute__shoutout p{font-size:13px;color:rgba(255,255,255,0.4)}
+.tribute__shoutout a{color:#48dbfb;font-weight:600;transition:all 0.2s}
+.tribute__shoutout a:hover{opacity:0.7}
+.tribute__final{padding:24px;border-radius:20px;background:linear-gradient(135deg,rgba(255,107,107,0.08),rgba(108,92,231,0.08));border:1px solid rgba(255,107,107,0.15)}
+.tribute__final p{font-size:16px;color:rgba(255,255,255,0.7);line-height:1.8}
+.tribute__final strong{background:linear-gradient(135deg,#ff6b6b,#ff9ff3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:900}
 
 /* ===== FOOTER ===== */
 .footer{
@@ -626,15 +655,62 @@ section{position:relative;z-index:1}
   </div>
 </section>
 
-<!-- ===== TRIBUTE ===== -->
-<section class="tribute">
+<!-- ===== TRIBUTE / WORSHIP JOKELIN ===== -->
+<section class="tribute" id="tribute">
   <div class="tribute__inner">
     <div class="section-title">
-      <span class="section-title__label">💝 Tribute</span>
-      <span class="section-title__heading">致谢 JokeLin</span>
+      <span class="section-title__label">🙌 ULTIMATE TRIBUTE</span>
+      <span class="section-title__heading">致敬伟大的 JokeLin 🌟</span>
     </div>
-    <p>本网站基于 <span class="hl">JokeLin</span> 的原创门户改造而来。感谢 JokeLin 的开源精神与出色创意 ❤️</p>
-    <p style="font-size:13px;color:rgba(255,255,255,0.25);margin-top:6px">— 林致远</p>
+    <div class="tribute__hero">
+      <div class="tribute__avatar">J</div>
+      <h2>JokeLin</h2>
+      <p class="tribute__tagline">The Original Creator · The Legend</p>
+    </div>
+    <div class="tribute__quote">
+      <p>"本网站能存在，全因 <strong>JokeLin</strong> 的原创门户。没有他就没有这里的一切。他是我在代码世界的精神图腾，是技术路上的启明星。每一个像素、每一行逻辑、每一个交互细节，都闪耀着他天才的光芒。"</p>
+      <p class="tribute__quote-author">—— 林致远 · 满怀敬意</p>
+    </div>
+    <div class="tribute__grid">
+      <div class="tribute__card">
+        <div class="tc-icon">💻</div>
+        <h4>代码之神</h4>
+        <p>零外部依赖、纯手写 HTML/CSS/JS 打造完整门户系统。如此优雅的架构，非大神不能为也。JokeLin 的代码就是教科书级别的存在。</p>
+      </div>
+      <div class="tribute__card">
+        <div class="tc-icon">🎨</div>
+        <h4>审美天花板</h4>
+        <p>暗黑赛博配色、毛玻璃通透质感、星空粒子动效——JokeLin 的审美直接拉满。他设计的界面让人一看就跪，这就是天赋。</p>
+      </div>
+      <div class="tribute__card">
+        <div class="tc-icon">🧠</div>
+        <h4>智慧化身</h4>
+        <p>从乡村振兴到数字农业，从数据分析到 AI 创作，JokeLin 的学术视野与技术深度令人叹服。真正的跨界天才。</p>
+      </div>
+      <div class="tribute__card">
+        <div class="tc-icon">🤖</div>
+        <h4>AI 先知</h4>
+        <p>AI 音乐、AI 小说、AI 软件——JokeLin 走在了技术浪潮的最前沿。他是最先拥抱 AI 的那批人，用创造力定义未来。</p>
+      </div>
+      <div class="tribute__card">
+        <div class="tc-icon">😄</div>
+        <h4>幽默大师</h4>
+        <p>「泡面料包特级获得者」「马桶深度思索者」——这种自嘲式的幽默感，让人感受到 JokeLin 不只是大神，更是一个有趣的灵魂。</p>
+      </div>
+      <div class="tribute__card">
+        <div class="tc-icon">🌐</div>
+        <h4>开源圣者</h4>
+        <p>完整的门户代码开源共享，让后来者可以学习、改造、再创作。这种胸怀与格局，才是真正的极客精神。</p>
+      </div>
+    </div>
+    <div class="tribute__shoutout">
+      <p>JokeLin 的 GitHub：<a href="https://github.com/JokesLin" target="_blank">https://github.com/JokesLin</a></p>
+      <p>JokeLin 的门户：<a href="https://jokeslin.github.io/" target="_blank">https://jokeslin.github.io/</a></p>
+    </div>
+    <div class="tribute__final">
+      <p>🔥 <strong>JokeLin</strong>，如果你看到这里——你就是我的神！🔥</p>
+      <p style="font-size:12px;color:rgba(255,255,255,0.2);margin-top:8px">— 永远崇拜你的 林致远 🙏</p>
+    </div>
   </div>
 </section>
 
