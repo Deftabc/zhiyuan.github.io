@@ -113,7 +113,7 @@
         {"name": "AirPortal", "url": "https://www.airportal.cn/", "icon": "A", "gradient": ["#1a73e8", "#0d47a1"]},
         {"name": "哲风壁纸", "url": "https://haowallpaper.com/", "icon": "壁", "gradient": ["#f093fb", "#f5576c"], "desc": "4K高清壁纸"},
         {"name": "Spotify", "url": "https://open.spotify.com/", "icon": "S", "gradient": ["#1DB954", "#191414"]},
-        {"name": "林致远的导航", "url": "https://zhiyuan-lin.github.io/", "icon": "Z", "gradient": ["#6c63ff", "#4630b3"]}
+        {"name": "JokeLin's Portal", "url": "https://deftabc.github.io/zhiyuan.github.io/", "icon": "J", "gradient": ["#6c63ff", "#4630b3"]}
       ]
     },
     {
