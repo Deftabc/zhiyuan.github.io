@@ -41,20 +41,20 @@
     {"name": "团队协调与项目管理", "level": 80, "category": "综合"}
   ],
   "personalityTags": [
-    {"label": "学术打工人", "icon": "🎓", "evidence": "帮导师做规划项目 · WPS + Git + Python 核心工具链"},
-    {"label": "全栈网络操盘手", "icon": "🌐", "evidence": "Tailscale 私有组网 · Clash Verge · Sunshine 串流"},
-    {"label": "野生开发者", "icon": "💻", "evidence": "Git + Python 3.14 + Trae AI · 记事本改配置"},
-    {"label": "AI 双持体验家", "icon": "🤖", "evidence": "同时安装豆包和 Marvis 两款 AI 助手"},
-    {"label": "Deadline 爆发型选手", "icon": "⚡", "evidence": "周日文件活跃量130个（37.5%），周五仅15个"},
-    {"label": "诺贝尔文学奖忠实读者", "icon": "📖", "evidence": "每年诺奖公布当天光速下单，次日看到第3页"},
-    {"label": "Spotify终身聆听者", "icon": "🎧", "evidence": "年度报告：你的品味很独特，我们看不懂"},
-    {"label": "抖音常驻观影人", "icon": "📱", "evidence": "日均摄入短视频2.5小时，已形成肌肉记忆"},
-    {"label": "B站资深鉴赏者", "icon": "📺", "evidence": "Lv6大会员 · 收藏夹吃灰率98.7%"},
-    {"label": "福州美食业余品评官", "icon": "🍜", "evidence": "吃遍福州八县 · 大众点评V7 · 鱼丸鉴赏十级学者"},
-    {"label": "AI灵感持有者", "icon": "✨", "evidence": "每天向AI提问50+次，把大模型当赛博许愿池"},
-    {"label": "泡面料包特级获得者", "icon": "🍜", "evidence": "三分钟泡面技艺炉火纯青，汤底一滴不剩"},
-    {"label": "马桶深度思索者", "icon": "🚽", "evidence": "80%的人生重大决定在此诞生"},
-    {"label": "显卡专职收集者", "icon": "🎮", "evidence": "云评测懂王 · Steam库存比显卡多"}
+    {"label": "文献捕捞达人", "icon": "📚", "evidence": "知网·Web of Science·Google Scholar 三修玩家"},
+    {"label": "键盘思想家", "icon": "⌨️", "evidence": "打字速度跟思想速度赛跑，通常是思想先跑丢"},
+    {"label": "咖啡成瘾研究员", "icon": "☕", "evidence": "每天3杯起步，没有咖啡因就没有论文"},
+    {"label": "Ctrl+S 肌肉记忆者", "icon": "💾", "evidence": "每打一行字按一次保存，ptsd级条件反射"},
+    {"label": "鸽王之王", "icon": "🕊️", "evidence": "DDL是第一生产力，提前完成是不存在的"},
+    {"label": "云养猫大户", "icon": "🐱", "evidence": "关注了42个宠物博主，云吸猫时长超过学习时长"},
+    {"label": "备忘录流浪汉", "icon": "📝", "evidence": "手机里有137条备忘，找得到算我输"},
+    {"label": "夜间赛博游民", "icon": "🌙", "evidence": "凌晨2点灵感巅峰，白天像被抽干了灵魂"},
+    {"label": "收藏家型学习者", "icon": "📂", "evidence": "收藏了500G学习资料，看过的比例约等于GDP增速"},
+    {"label": "表情包艺术家", "icon": "🎭", "evidence": "斗图从未输过，正经话从来说不过三句"},
+    {"label": "学术凡尔赛初级学者", "icon": "👑", "evidence": "刚学到一个理论就忍不住要发朋友圈"},
+    {"label": "外卖品鉴官", "icon": "🍱", "evidence": "学校周边外卖Top100全打卡，差评率2.3%"},
+    {"label": "终极熬夜战士", "icon": "⚔️", "evidence": "见过凌晨123456点的农大，黑眼圈是荣耀勋章"},
+    {"label": "脑内弹幕发射器", "icon": "💬", "evidence": "上课时表面认真听讲，实际脑内弹幕刷屏中"}
   ],
   "research": [
     {
