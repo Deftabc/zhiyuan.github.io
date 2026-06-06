@@ -311,22 +311,22 @@
         <span class="stat">📄 <strong id="stat-blog">—</strong> 篇文章</span>
         <span class="arrow">→</span>
       </a>
-      <a class="project-card" href="content/music/">
-        <span class="project-card__icon" style="background:linear-gradient(135deg,#ff9500,#ff9f0a);color:#fff">🎵</span>
-        <h3>AI 音乐</h3>
-        <p>AI 驱动的音乐创作与歌单收藏展示</p>
-        <span class="stat">🎶 <strong id="stat-music">—</strong> 首歌曲</span>
+      <a class="project-card" href="content/notes/">
+        <span class="project-card__icon" style="background:linear-gradient(135deg,#ff9500,#ff9f0a);color:#fff">📝</span>
+        <h3>学习笔记</h3>
+        <p>课程总结、技术笔记与论文阅读笔记，持续更新中</p>
+        <span class="stat">📄 <strong id="stat-notes">—</strong> 篇笔记</span>
         <span class="arrow">→</span>
       </a>
-      <a class="project-card" href="content/novel/">
-        <span class="project-card__icon" style="background:linear-gradient(135deg,#ff3b30,#ff453a);color:#fff">📖</span>
-        <h3>AI 小说</h3>
-        <p>AI 辅助创作的文学作品与短篇故事集</p>
-        <span class="stat">📚 <strong id="stat-novel">—</strong> 部作品</span>
+      <a class="project-card" href="content/gallery/">
+        <span class="project-card__icon" style="background:linear-gradient(135deg,#bf5af2,#da8fff);color:#fff">🎨</span>
+        <h3>作品展示</h3>
+        <p>项目截图、数据可视化与创意设计作品展示</p>
+        <span class="stat">🖼️ <strong id="stat-gallery">—</strong> 件作品</span>
         <span class="arrow">→</span>
       </a>
       <a class="project-card" href="content/resume/">
-        <span class="project-card__icon" style="background:linear-gradient(135deg,#bf5af2,#da8fff);color:#fff">📋</span>
+        <span class="project-card__icon" style="background:linear-gradient(135deg,#ff6b6b,#ee5a24);color:#fff">📋</span>
         <h3>数字简历</h3>
         <p>数字画像报告，含技能雷达与研究经历时间线</p>
         <span class="stat">🏷️ <strong id="stat-resume">—</strong> 个性标签</span>
@@ -440,15 +440,14 @@
     fetch('content/blog/data.json').then(function(r) { return r.json(); }).then(function(d) {
       var el = document.getElementById('stat-blog'); if (el) el.textContent = (d.posts || []).length;
     }).catch(function() {});
+    fetch('content/notes/data.json').then(function(r) { return r.json(); }).then(function(d) {
+      var el = document.getElementById('stat-notes'); if (el) el.textContent = (d.notes || []).length;
+    }).catch(function() {});
+    fetch('content/gallery/data.json').then(function(r) { return r.json(); }).then(function(d) {
+      var el = document.getElementById('stat-gallery'); if (el) el.textContent = (d.items || []).length;
+    }).catch(function() {});
     fetch('content/resume/data.json').then(function(r) { return r.json(); }).then(function(d) {
       var el = document.getElementById('stat-resume'); if (el) el.textContent = (d.personalityTags || []).length;
-    }).catch(function() {});
-    fetch('content/music/data.json').then(function(r) { return r.json(); }).then(function(d) {
-      var total = 0; (d.playlists || []).forEach(function(p) { total += (p.songs || []).length; });
-      var el = document.getElementById('stat-music'); if (el) el.textContent = total;
-    }).catch(function() {});
-    fetch('content/novel/data.json').then(function(r) { return r.json(); }).then(function(d) {
-      var el = document.getElementById('stat-novel'); if (el) el.textContent = (d.stories || []).length;
     }).catch(function() {});
     fetch('content/ai-software/data.json').then(function(r) { return r.json(); }).then(function(d) {
       var el = document.getElementById('stat-soft'); if (el) el.textContent = (d.software || []).length;

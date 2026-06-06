@@ -56,6 +56,52 @@
       "downloadUrl": "",
       "updateDate": "2026-05-20",
       "note": "即将上线，敬请期待"
+    },
+    {
+      "id": "data-viz-tool",
+      "name": "数据可视化助手",
+      "icon": "📊",
+      "gradient": ["#6c63ff", "#4facfe"],
+      "category": "ai-productivity",
+      "version": "1.0.0",
+      "size": "12.5 MB",
+      "requirements": "Android 8.0 及以上 / Web",
+      "description": "数据可视化助手是一款面向科研与办公场景的数据图表生成工具，支持 Excel / CSV 数据导入，快速生成柱状图、折线图、散点图、热力图等多种图表类型，内置 AI 智能配色与排版优化功能。",
+      "features": [
+        "AI 智能图表推荐：根据数据特征自动推荐最合适的图表类型",
+        "一键导入：支持 Excel、CSV、JSON 等多种格式数据导入",
+        "丰富图表库：柱状图、折线图、饼图、散点图、热力图等 20+ 种图表",
+        "AI 配色：自动生成符合学术规范的配色方案",
+        "导出高清图：支持 PNG/SVG/PDF 等格式导出",
+        "数据源管理：本地导入与在线数据源双重支持"
+      ],
+      "screenshots": [],
+      "downloadUrl": "",
+      "updateDate": "2026-06-01",
+      "note": "Web 版已上线，移动端即将发布"
+    },
+    {
+      "id": "note-ai",
+      "name": "AI 笔记助手",
+      "icon": "📝",
+      "gradient": ["#2ecc71", "#27ae60"],
+      "category": "ai-reader",
+      "version": "1.0.0",
+      "size": "10.2 MB",
+      "requirements": "Android 7.0 及以上 / iOS",
+      "description": "AI 笔记助手是一款智能笔记管理工具，支持语音转文字、OCR 图片识别、AI 自动分类与标签生成功能，帮助用户高效管理碎片化信息与知识积累。",
+      "features": [
+        "语音转文字：高精度语音识别，支持中英文混合输入",
+        "OCR 识别：拍照即可提取图片中的文字信息",
+        "AI 分类：自动对笔记内容进行分类与标签标注",
+        "知识图谱：AI 自动构建笔记之间的关联关系",
+        "多端同步：登录账号即可跨设备同步笔记",
+        "AI 问答：基于笔记内容进行智能问答与检索"
+      ],
+      "screenshots": [],
+      "downloadUrl": "",
+      "updateDate": "2026-06-03",
+      "note": "内测阶段，欢迎体验"
     }
   ]
 }

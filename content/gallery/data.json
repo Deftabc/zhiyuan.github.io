@@ -1,0 +1,53 @@
+{
+  "title": "🎨 作品展示",
+  "items": [
+    {
+      "id": "gal-001",
+      "title": "致远阅读 App",
+      "desc": "基于 AI 技术的移动端小说阅读应用，融合智能推荐、AI 朗读、智能排版功能。",
+      "icon": "📖",
+      "category": "应用开发",
+      "bg": "linear-gradient(135deg, #e8f4f8, #d1ecf1)"
+    },
+    {
+      "id": "gal-002",
+      "title": "乡村产业数据看板",
+      "desc": "将福建省乡村振兴调研数据可视化，展示产业结构、就业分布与经济指标。",
+      "icon": "📊",
+      "category": "数据可视化",
+      "bg": "linear-gradient(135deg, #e8f8e8, #d1f1d1)"
+    },
+    {
+      "id": "gal-003",
+      "title": "个人门户网站",
+      "desc": "纯前端个人综合门户网站，涵盖书签、博客、简历、软件等模块。",
+      "icon": "🌐",
+      "category": "Web 开发",
+      "bg": "linear-gradient(135deg, #e8ecf8, #d1d8f1)"
+    },
+    {
+      "id": "gal-004",
+      "title": "AI 音乐作品",
+      "desc": "使用 AI 工具辅助创作的音乐作品，探索技术与艺术的交叉领域。",
+      "icon": "🎵",
+      "category": "创意作品",
+      "bg": "linear-gradient(135deg, #f8e8f0, #f1d1e0)"
+    },
+    {
+      "id": "gal-005",
+      "title": "学术论文排版范例",
+      "desc": "熟练掌握 LaTeX 与 Word 学术论文排版，多篇课程论文获得优秀评价。",
+      "icon": "📄",
+      "category": "学术成果",
+      "bg": "linear-gradient(135deg, #f8f4e8, #f1ecd1)"
+    },
+    {
+      "id": "gal-006",
+      "title": "AI 写作助手",
+      "desc": "面向学术写作的智能辅助工具，提供大纲生成、润色、续写等功能。",
+      "icon": "✍️",
+      "category": "应用开发",
+      "bg": "linear-gradient(135deg, #f0e8f8, #e0d1f1)"
+    }
+  ]
+}

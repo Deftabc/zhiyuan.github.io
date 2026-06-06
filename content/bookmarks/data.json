@@ -180,6 +180,35 @@
         {"name": "5G Mobile Hotspot", "url": "http://192.168.0.1/index.html#home", "icon": "5", "gradient": ["#27ae60", "#2ecc71"]},
         {"name": "UFI-TOOLS", "url": "http://192.168.0.1:2333/", "icon": "U", "gradient": ["#f39c12", "#e67e22"]}
       ]
+    },
+    {
+      "id": "design",
+      "name": "设计资源",
+      "icon": "🎨",
+      "items": [
+        {"name": "Coolors 配色", "url": "https://coolors.co/", "icon": "C", "gradient": ["#6c63ff", "#4630b3"]},
+        {"name": "Dribbble", "url": "https://dribbble.com/", "icon": "D", "gradient": ["#ea4c89", "#c0392b"]},
+        {"name": "Unsplash 图库", "url": "https://unsplash.com/", "icon": "U", "gradient": ["#000", "#333"]},
+        {"name": "Font Awesome", "url": "https://fontawesome.com/", "icon": "F", "gradient": ["#528dd7", "#28598a"]},
+        {"name": "Emoji 大全", "url": "https://emojipedia.org/", "icon": "😊", "gradient": ["#f39c12", "#e67e22"]},
+        {"name": "Icons8", "url": "https://icons8.com/", "icon": "I", "gradient": ["#1abc9c", "#16a085"]},
+        {"name": "CSS Tricks", "url": "https://css-tricks.com/", "icon": "C", "gradient": ["#2c3e50", "#3498db"]}
+      ]
+    },
+    {
+      "id": "learning",
+      "name": "在线学习",
+      "icon": "📚",
+      "items": [
+        {"name": "中国大学MOOC", "url": "https://www.icourse163.org/", "icon": "M", "gradient": ["#e74c3c", "#c0392b"]},
+        {"name": "学堂在线", "url": "https://www.xuetangx.com/", "icon": "学", "gradient": ["#1a73e8", "#0d47a1"]},
+        {"name": "Khan Academy", "url": "https://www.khanacademy.org/", "icon": "K", "gradient": ["#27ae60", "#2ecc71"]},
+        {"name": "Coursera", "url": "https://www.coursera.org/", "icon": "C", "gradient": ["#0056d2", "#003a99"]},
+        {"name": "edX", "url": "https://www.edx.org/", "icon": "e", "gradient": ["#02262b", "#044a54"]},
+        {"name": "FreeCodeCamp", "url": "https://www.freecodecamp.org/", "icon": "F", "gradient": ["#0a0a23", "#1b1b32"]},
+        {"name": "Bilibili 知识区", "url": "https://www.bilibili.com/v/popular/science", "icon": "B", "gradient": ["#fb7299", "#e85c82"]},
+        {"name": "知网研学", "url": "https://x.cnki.net/", "icon": "知", "gradient": ["#c31432", "#240b36"]}
+      ]
     }
   ]
 }
