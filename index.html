@@ -393,7 +393,37 @@ section{position:relative;z-index:1}
 }
 .footer p{margin-bottom:4px}
 
-/* ===== SCROLL TOP ===== */
+/* ===== BGM PLAYER ===== */
+.bgm-player{
+  position:fixed;bottom:90px;right:30px;z-index:9998;
+  display:flex;align-items:center;gap:10px;
+  background:rgba(13,13,26,0.85);backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.08);border-radius:16px;
+  padding:10px 16px 10px 14px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.3);
+  transition:all 0.3s;cursor:pointer;
+}
+.bgm-player:hover{border-color:rgba(255,255,255,0.15);transform:translateY(-2px)}
+.bgm-player .bp-icon{
+  width:32px;height:32px;border-radius:10px;
+  background:linear-gradient(135deg,#ff6b6b,#ee5a24);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:#fff;flex-shrink:0;
+}
+.bgm-player .bp-icon.paused{background:rgba(255,255,255,0.1)}
+.bgm-player .bp-info{flex:1;min-width:0}
+.bgm-player .bp-title{font-size:12px;font-weight:600;color:rgba(255,255,255,0.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:80px}
+.bgm-player .bp-artist{font-size:10px;color:rgba(255,255,255,0.3)}
+.bgm-player .bp-visual{display:flex;align-items:center;gap:2px;height:16px}
+.bgm-player .bp-bar{width:2px;border-radius:1px;background:#ff6b6b;animation:bpWave 1s ease-in-out infinite}
+.bgm-player .bp-bar:nth-child(1){height:8px;animation-delay:0s}
+.bgm-player .bp-bar:nth-child(2){height:14px;animation-delay:0.15s}
+.bgm-player .bp-bar:nth-child(3){height:10px;animation-delay:0.3s}
+.bgm-player .bp-bar:nth-child(4){height:16px;animation-delay:0.45s}
+.bgm-player .bp-bar:nth-child(5){height:6px;animation-delay:0.6s}
+.bgm-player.paused .bp-bar{animation-play-state:paused;background:rgba(255,255,255,0.2)}
+@keyframes bpWave{0%,100%{transform:scaleY(0.5)}50%{transform:scaleY(1)}}
+@media(max-width:768px){.bgm-player{bottom:80px;right:16px;padding:8px 12px}.bgm-player .bp-info{display:none}}
 .scroll-top{
   position:fixed;bottom:30px;right:30px;z-index:999;cursor:pointer;
   width:48px;height:48px;border-radius:16px;
@@ -720,6 +750,21 @@ section{position:relative;z-index:1}
   <p>本站已运行 <span id="footerDays">—</span> 天</p>
 </footer>
 
+<!-- ===== BGM PLAYER ===== -->
+<div class="bgm-player" id="bgmPlayer" title="点击播放/暂停">
+  <div class="bp-icon" id="bpIcon">♪</div>
+  <div class="bp-info">
+    <div class="bp-title">青花瓷</div>
+    <div class="bp-artist">周杰伦</div>
+  </div>
+  <div class="bp-visual" id="bpVisual">
+    <div class="bp-bar"></div><div class="bp-bar"></div><div class="bp-bar"></div><div class="bp-bar"></div><div class="bp-bar"></div>
+  </div>
+  <audio id="bgmAudio" loop preload="auto">
+    <source src="assets/bgm.mp3" type="audio/mpeg">
+  </audio>
+</div>
+
 <button class="scroll-top" id="scrollTop">↑</button>
 
 <script>
@@ -728,6 +773,46 @@ section{position:relative;z-index:1}
 var launch = new Date('2025-08-01');
 var nav = document.getElementById('nav');
 var st = document.getElementById('scrollTop');
+
+/* --- BGM Player --- */
+(function(){
+  var audio = document.getElementById('bgmAudio');
+  var player = document.getElementById('bgmPlayer');
+  var icon = document.getElementById('bpIcon');
+  if(!audio)return;
+  var isPlaying = false;
+  /* 用户首次交互后自动播放 */
+  var firstTap = function(){
+    audio.play().then(function(){
+      isPlaying = true;
+      player.classList.remove('paused');
+      icon.className = 'bp-icon';
+      icon.textContent = '♪';
+    }).catch(function(){});
+    document.removeEventListener('click', firstTap);
+    document.removeEventListener('touchstart', firstTap);
+  };
+  document.addEventListener('click', firstTap);
+  document.addEventListener('touchstart', firstTap);
+  /* 点击切换播放/暂停 */
+  player.onclick = function(e){
+    e.stopPropagation();
+    if(isPlaying){
+      audio.pause();
+      isPlaying = false;
+      player.classList.add('paused');
+      icon.className = 'bp-icon paused';
+      icon.textContent = '▶';
+    } else {
+      audio.play().then(function(){
+        isPlaying = true;
+        player.classList.remove('paused');
+        icon.className = 'bp-icon';
+        icon.textContent = '♪';
+      }).catch(function(){});
+    }
+  };
+})();
 
 window.addEventListener('scroll',function(){
   nav.classList.toggle('scrolled',scrollY>40);
