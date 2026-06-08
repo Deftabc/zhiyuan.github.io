@@ -400,18 +400,17 @@ section{position:relative;z-index:1}
   background:rgba(13,13,26,0.85);backdrop-filter:blur(16px);
   border:1px solid rgba(255,255,255,0.08);border-radius:16px;
   padding:10px 16px 10px 14px;
-  box-shadow:0 8px 40px rgba(0,0,0,0.3);
-  transition:all 0.3s;cursor:pointer;
+  box-shadow:0 8px 40px rgba(0,0,0,0.3);transition:all 0.3s;
 }
 .bgm-player:hover{border-color:rgba(255,255,255,0.15);transform:translateY(-2px)}
 .bgm-player .bp-icon{
-  width:32px;height:32px;border-radius:10px;
+  width:32px;height:32px;border-radius:10px;flex-shrink:0;
   background:linear-gradient(135deg,#ff6b6b,#ee5a24);
   display:flex;align-items:center;justify-content:center;
-  font-size:14px;color:#fff;flex-shrink:0;
+  font-size:14px;color:#fff;cursor:pointer;
 }
 .bgm-player .bp-icon.paused{background:rgba(255,255,255,0.1)}
-.bgm-player .bp-info{flex:1;min-width:0}
+.bgm-player .bp-info{flex:1;min-width:0;cursor:pointer}
 .bgm-player .bp-title{font-size:12px;font-weight:600;color:rgba(255,255,255,0.8);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:80px}
 .bgm-player .bp-artist{font-size:10px;color:rgba(255,255,255,0.3)}
 .bgm-player .bp-visual{display:flex;align-items:center;gap:2px;height:16px}
@@ -422,8 +421,44 @@ section{position:relative;z-index:1}
 .bgm-player .bp-bar:nth-child(4){height:16px;animation-delay:0.45s}
 .bgm-player .bp-bar:nth-child(5){height:6px;animation-delay:0.6s}
 .bgm-player.paused .bp-bar{animation-play-state:paused;background:rgba(255,255,255,0.2)}
+.bgm-player .bp-menu-btn{
+  width:24px;height:24px;border-radius:6px;flex-shrink:0;cursor:pointer;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;color:rgba(255,255,255,0.4);transition:all 0.2s;
+}
+.bgm-player .bp-menu-btn:hover{background:rgba(255,255,255,0.1);color:#fff}
+/* 歌单弹窗 */
+.bp-playlist{
+  display:none;position:absolute;bottom:60px;right:0;z-index:9999;
+  width:220px;background:rgba(20,20,35,0.95);backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.08);border-radius:16px;
+  padding:8px;box-shadow:0 16px 60px rgba(0,0,0,0.4);
+}
+.bp-playlist.show{display:block}
+.bp-playlist .bps-header{display:flex;align-items:center;justify-content:space-between;padding:4px 8px 8px;border-bottom:1px solid rgba(255,255,255,0.06);margin-bottom:4px}
+.bp-playlist .bps-header span{font-size:11px;color:rgba(255,255,255,0.3);font-weight:600}
+.bp-playlist .bps-header .bps-shuffle{font-size:11px;color:rgba(255,255,255,0.3);cursor:pointer;transition:all 0.2s;padding:2px 6px;border-radius:4px}
+.bp-playlist .bps-header .bps-shuffle:hover{color:#fff;background:rgba(255,255,255,0.06)}
+.bp-playlist .bps-header .bps-shuffle.on{color:#ff6b6b}
+.bp-playlist .bps-item{
+  display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;
+  cursor:pointer;transition:all 0.2s;
+}
+.bp-playlist .bps-item:hover{background:rgba(255,255,255,0.04)}
+.bp-playlist .bps-item.active{background:rgba(255,107,107,0.1)}
+.bp-playlist .bps-item .bps-num{width:16px;font-size:11px;color:rgba(255,255,255,0.2);text-align:center;flex-shrink:0}
+.bp-playlist .bps-item .bps-info{flex:1;min-width:0}
+.bp-playlist .bps-item .bps-info .bps-name{font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bp-playlist .bps-item .bps-info .bps-art{font-size:10px;color:rgba(255,255,255,0.25)}
+.bp-playlist .bps-item .bps-play{font-size:10px;color:rgba(255,255,255,0.2);display:none}
+.bp-playlist .bps-item.active .bps-play{display:block;color:#ff6b6b}
 @keyframes bpWave{0%,100%{transform:scaleY(0.5)}50%{transform:scaleY(1)}}
-@media(max-width:768px){.bgm-player{bottom:80px;right:16px;padding:8px 12px}.bgm-player .bp-info{display:none}}
+@media(max-width:768px){
+  .bgm-player{bottom:80px;right:16px;padding:8px 12px}
+  .bgm-player .bp-info{display:none}
+  .bp-playlist{right:0;width:200px}
+}
 .scroll-top{
   position:fixed;bottom:30px;right:30px;z-index:999;cursor:pointer;
   width:48px;height:48px;border-radius:16px;
@@ -751,17 +786,25 @@ section{position:relative;z-index:1}
 </footer>
 
 <!-- ===== BGM PLAYER ===== -->
-<div class="bgm-player" id="bgmPlayer" title="点击播放/暂停">
+<div class="bgm-player" id="bgmPlayer">
   <div class="bp-icon" id="bpIcon">♪</div>
-  <div class="bp-info">
-    <div class="bp-title">青花瓷</div>
-    <div class="bp-artist">周杰伦</div>
+  <div class="bp-info" id="bpInfo">
+    <div class="bp-title" id="bpTitle">青花瓷</div>
+    <div class="bp-artist" id="bpArtist">周杰伦</div>
   </div>
   <div class="bp-visual" id="bpVisual">
     <div class="bp-bar"></div><div class="bp-bar"></div><div class="bp-bar"></div><div class="bp-bar"></div><div class="bp-bar"></div>
   </div>
-  <audio id="bgmAudio" loop preload="auto">
-    <source src="assets/bgm.mp3" type="audio/mpeg">
+  <div class="bp-menu-btn" id="bpMenuBtn">☰</div>
+  <div class="bp-playlist" id="bpPlaylist">
+    <div class="bps-header">
+      <span>🎵 播放列表</span>
+      <span class="bps-shuffle" id="bpShuffle">🔀 随机</span>
+    </div>
+    <div id="bpSongList"></div>
+  </div>
+  <audio id="bgmAudio" preload="auto">
+    <source src="assets/music/青花瓷.mp3" type="audio/mpeg">
   </audio>
 </div>
 
@@ -776,30 +819,83 @@ var st = document.getElementById('scrollTop');
 
 /* --- BGM Player --- */
 (function(){
+  var songs = [
+    {name:'青花瓷',art:'周杰伦',file:'assets/music/青花瓷.mp3'},
+    {name:'晴天',art:'周杰伦',file:'assets/music/晴天.mp3'},
+    {name:'花海',art:'周杰伦',file:'assets/music/花海.mp3'},
+    {name:'坏女孩',art:'徐良',file:'assets/music/坏女孩.aac'}
+  ];
+  var curIdx = 0, isPlaying = false, shuffle = false;
   var audio = document.getElementById('bgmAudio');
   var player = document.getElementById('bgmPlayer');
   var icon = document.getElementById('bpIcon');
+  var titleEl = document.getElementById('bpTitle');
+  var artistEl = document.getElementById('bpArtist');
+  var menuBtn = document.getElementById('bpMenuBtn');
+  var playlist = document.getElementById('bpPlaylist');
+  var songList = document.getElementById('bpSongList');
+  var shuffleBtn = document.getElementById('bpShuffle');
   if(!audio)return;
-  var isPlaying = false;
-  /* 用户首次交互后自动播放 */
-  var firstTap = function(){
+
+  function renderSongs(){
+    var html = '';
+    songs.forEach(function(s,i){
+      html += '<div class="bps-item'+(i===curIdx?' active':'')+'" data-i="'+i+'"><div class="bps-num">'+(i+1)+'</div><div class="bps-info"><div class="bps-name">'+s.name+'</div><div class="bps-art">'+s.art+'</div></div><div class="bps-play">♪</div></div>';
+    });
+    songList.innerHTML = html;
+    songList.querySelectorAll('.bps-item').forEach(function(el){
+      el.onclick = function(e){
+        e.stopPropagation();
+        playSong(parseInt(this.getAttribute('data-i')));
+        playlist.classList.remove('show');
+      };
+    });
+  }
+
+  function playSong(i){
+    curIdx = i;
+    var s = songs[i];
+    audio.src = s.file;
+    audio.load();
+    titleEl.textContent = s.name;
+    artistEl.textContent = s.art;
     audio.play().then(function(){
       isPlaying = true;
       player.classList.remove('paused');
       icon.className = 'bp-icon';
       icon.textContent = '♪';
+      renderSongs();
     }).catch(function(){});
+  }
+
+  function nextSong(){
+    if(shuffle){
+      var ni;
+      do { ni = Math.floor(Math.random() * songs.length); } while(songs.length>1 && ni===curIdx);
+      playSong(ni);
+    } else {
+      playSong((curIdx+1)%songs.length);
+    }
+  }
+
+  /* 播放结束自动下一首 */
+  audio.onended = nextSong;
+
+  /* 首次交互触发播放 */
+  var firstTap = function(){
+    playSong(curIdx);
     document.removeEventListener('click', firstTap);
     document.removeEventListener('touchstart', firstTap);
   };
   document.addEventListener('click', firstTap);
   document.addEventListener('touchstart', firstTap);
-  /* 点击切换播放/暂停 */
-  player.onclick = function(e){
+
+  /* 点击播放/暂停(点击信息区) */
+  var bpInfo = document.getElementById('bpInfo');
+  bpInfo.onclick = function(e){
     e.stopPropagation();
     if(isPlaying){
-      audio.pause();
-      isPlaying = false;
+      audio.pause(); isPlaying = false;
       player.classList.add('paused');
       icon.className = 'bp-icon paused';
       icon.textContent = '▶';
@@ -812,6 +908,26 @@ var st = document.getElementById('scrollTop');
       }).catch(function(){});
     }
   };
+  icon.onclick = bpInfo.onclick;
+
+  /* 歌单菜单 */
+  menuBtn.onclick = function(e){
+    e.stopPropagation();
+    playlist.classList.toggle('show');
+  };
+  document.addEventListener('click',function(){playlist.classList.remove('show');});
+
+  /* 随机切换 */
+  shuffleBtn.onclick = function(e){
+    e.stopPropagation();
+    shuffle = !shuffle;
+    shuffleBtn.classList.toggle('on',shuffle);
+    shuffleBtn.textContent = shuffle ? '🔀 开' : '🔀 随机';
+  };
+
+  renderSongs();
+  /* 删除旧的bgm.mp3引用 */
+  if(audio.src.indexOf('bgm.mp3')>-1) audio.src = songs[0].file;
 })();
 
 window.addEventListener('scroll',function(){
